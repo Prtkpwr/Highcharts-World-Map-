@@ -27,24 +27,8 @@
 
 <script>
 
-// Load the data from a Google Spreadsheet
-// https://docs.google.com/spreadsheets/d/1WBx3mRqiomXk_ks1a5sEAtJGvYukguhAkcCuRDrY1L0/pubhtml
-Highcharts.data({
-    googleSpreadsheetKey: '1WBx3mRqiomXk_ks1a5sEAtJGvYukguhAkcCuRDrY1L0',
-
-    // Custom handler when the spreadsheet is parsed
-    parsed: function (columns) {
-
-        // Read the columns into the data array
         var data = [{code:'IND',value:123,name:"India"},
         {code:"COL",value:44,name:"Colombia"}];
-        /* Highcharts.each(columns[0], function (code, i) {
-            data.push({
-                code: code.toUpperCase(),
-                value: parseFloat(columns[2][i]),
-                name: columns[1][i]
-            });
-        }); */
 
         // Initiate the chart
         Highcharts.mapChart('container', {
@@ -120,13 +104,5 @@ Highcharts.data({
                 shadow: false
             }]
         });
-    },
-    error: function () {
-        document.getElementById('container').innerHTML = '<div class="loading">' +
-            '<i class="icon-frown icon-large"></i> ' +
-            'Error loading data from Google Spreadsheets' +
-            '</div>';
-    }
-});
 
 </script>
